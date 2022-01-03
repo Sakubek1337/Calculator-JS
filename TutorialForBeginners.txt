@@ -1,0 +1,111 @@
+How to write this amazing Calculator?
+Well, at first we should create 3 files: placeholder.html, placeholder.css and placeholder.js .
+Then we start our masterpiece by adding some divs (after basic html tags and refs to css and js files) to the body. 
+We need 3 of them, main div, div for display and div for buttons.
+After those, we need buttons. They will also be divs but all of them will be children of "#buttons" div.
+Then we need set their inner text to numbers(1234567890), mathematical operators such as "+", "-" etc., "C" so we clear the statement(display), "←" to clear the last digit
+or operator and "=" for us to calculate the statement.
+At this moment , we have finished the html part of our calculator.
+Its time for css styling. 
+CSS file:
+
+.maincontainer{
+  max-width: 400px;
+  margin: 10vh auto 0 auto; // Aligning our calculator to the center so that people who see it won't vomit
+  box-shadow: 0px 0px 25px 15px gray;
+}
+
+#display{
+  text-align: right; // Proper alignment for calculator's display
+  height: 70px;
+  line-height: 70px; // Lifting our display's so it won't be on the bottom
+  padding: 16px 8px;
+  font-size: 20px; // Setting font size
+}
+
+#buttons{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; // Adding 4 columns to our grid
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+ // We dividing borders into 2. By doing so we can avoid "doubled" borders.
+.buttons > div{
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.button{
+  line-height: 100px;
+  border: 0.5px solid grey; // Setting borders (width, type, color)
+  text-align: center; // Aligning text to center 
+  font-size: 20px;
+  cursor: pointer; // It will show hand whenever a cursor will be on button
+  background-color: #0e0636; // Setting background color
+  color: white; // Setting text color
+}
+
+.button:hover{ // .button:hover means when cursor will be on button(div)
+  background-color: white;
+  color: #0e0636; 
+  transition: 0.3s ease-in-out; // Adding transition so it will look ... NICER
+}
+
+#equal{ // We style "equal sign"'s button separately, so it will stand out from the others. 
+  background-color: #5234eb;
+  color: white;
+}
+
+#equal:hover{
+  background-color: white;
+  color: #5234eb;
+  transition: 0.5s ease-in-out;
+}
+
+----END OF CSS FILE----
+
+Then we need to code our calculator's backend , in other words , programm it so it will actually do mathematical operations and handle errors that can appear during process.
+
+In .js (JavaScript) file at first we need to get all the elements that we will need for calculations. We need display:
+1. let display = document.getElementById('display');
+And also buttons:
+2. let buttons = Array.from(document.getElementByClassName('button'));
+
+Then we need to map through our buttons (array):
+
+3. buttons.map(button => {})
+
+As a operation that we will do with each button , we will add EventListeners so they will be responsive to mouse-clicks.
+Inside of EventListeners' function we will use switch() so it will execute code according to the text of each button.
+
+3.buttons.map(button => {
+4.  button.addEventListener('click', (e) => {
+5.    switch(e.target.innerText){
+6.      case '=': 
+7.        try{                                                
+8.          display.innerText = eval(display.innerText); // Calculating mathematical equation
+9.        }catch{
+10.         display.innerText = 'Error!';     // Handling mathematically incorrect equations
+11.       }
+12.       break;
+13.     case '←':
+14.       display.innerText = display.innerText.slice(0, -1);  // Deleting the last character of display's text
+15.       break;
+16.     case 'C':
+17.       display.innerText = '';     // Clearing display's text if "C" button is clicked
+18.       break;
+19.     default:
+20.       if(display.innerText === 'Error!'){
+21.         display.innerText = '' + e.target.innerText;
+22.       }else{
+23.         display.innerText += e.target.innerText;
+24.       }    
+25.   }
+26. })
+27.})
+One thing to warn is eval() function on line 8 . This function evaluates whatever you put on display. It can redirect you to other web page, open other window, send your 
+ip to me etc. . So its not recommended to use this function in public projects.  
+And that's it for our js part and FINALLY we finished our entire project. 
+Thank you for reading this tutorial . Peace out! 
+
+
