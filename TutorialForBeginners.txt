@@ -3,8 +3,8 @@ Well, at first we should create 3 files: placeholder.html, placeholder.css and p
 Then we start our masterpiece by adding some divs (after basic html tags and refs to css and js files) to the body. 
 We need 3 of them, main div, div for display and div for buttons.
 After those, we need buttons. They will also be divs but all of them will be children of "#buttons" div.
-Then we need set their inner text to numbers(1234567890), mathematical operators such as "+", "-" etc., "C" so we clear the statement(display), "←" to clear the last digit
-or operator and "=" for us to calculate the statement.
+Then we need set their inner text to numbers(1234567890), mathematical operators such as "+", "-" etc., "C" so we can 
+clear the statement(display), "←" to clear the last digit or operator and "=" for us to calculate the statement.
 At this moment , we have finished the html part of our calculator.
 Its time for css styling. 
 CSS file:
@@ -64,7 +64,8 @@ CSS file:
 
 ----END OF CSS FILE----
 
-Then we need to code our calculator's backend , in other words , programm it so it will actually do mathematical operations and handle errors that can appear during process.
+Then we need to code our calculator's backend , in other words , programm it so it will actually do mathematical operations 
+and handle errors that can appear during process.
 
 In .js (JavaScript) file at first we need to get all the elements that we will need for calculations. We need display:
 1. let display = document.getElementById('display');
@@ -103,8 +104,9 @@ Inside of EventListeners' function we will use switch() so it will execute code 
 25.   }
 26. })
 27.})
-One thing to warn is eval() function on line 8 . This function evaluates whatever you put on display. It can redirect you to other web page, open other window, send your 
-ip to me etc. . So its not recommended to use this function in public projects.  
+One thing to warn is eval() function on line 8 . This function evaluates(executes) whatever you put on display. 
+It can redirect you to other web page , open other window, send your ip to me etc. if you write some code inside it in browser. 
+So its not recommended to use this function in public projects.  
 And that's it for our js part and FINALLY we finished our entire project. 
 Thank you for reading this tutorial . Peace out! 
 
