@@ -1,0 +1,85 @@
+body{
+  background-color: rgb(196, 235, 248);
+}
+
+.container{
+  max-width: 400px;
+  margin: 10vh auto 0 auto;
+  box-shadow: 0px 0px 25px 15px rgb(55, 52, 77);
+}
+
+#image{
+  width: 220px;
+  height: 216px;
+  background: url("../images/logo.png") no-repeat center center;
+  margin: 2vh auto 0 auto;
+}
+
+#display{
+  background-color: white;
+  text-align: right;
+  height: 70px;
+  line-height: 70px;
+  padding: 16px 8px;
+  font-size: 20px;
+}
+
+.buttons{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.buttons > div{
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.button{
+  line-height: 100px;
+  border: 0.5px solid grey;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #0e0636;
+  color: white;
+}
+
+.button:hover{
+  background-color: white;
+  color: #0e0636;
+  transition: 0.3s ease-in-out;
+}
+
+#ravno{
+  background-color: #5234eb;
+  color: white;
+}
+
+#ravno:hover{
+  background-color: white;
+  color: #5234eb;
+  transition: 0.5s ease-in-out;
+}
+
+#recent{
+  padding-left: 10px; 
+  padding-right: 10px;
+  width: 600px;
+  height: auto;
+  background-color: white;
+  border: 2px dashed black;
+  border-radius: 20px;
+  margin: 30px auto 0 auto;
+  text-align: center; 
+  
+}
+
+#recent p{
+  font-family: "Courier New"
+}
+
+#rv{
+  text-align: left;
+}
