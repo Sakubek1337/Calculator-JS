@@ -4,35 +4,50 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>replit</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/login.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <div id="image"></div>
     <div class="container">
-      <div id="display"></div>
-      <div class="buttons">
-        <div class="button">C</div>
-        <div class="button">/</div>
-        <div class="button">*</div>
-        <div class="button">&larr;</div>
-        <div class="button">9</div>
-        <div class="button">8</div>
-        <div class="button">7</div>
-        <div class="button">+</div>
-        <div class="button">6</div>
-        <div class="button">5</div>
-        <div class="button">4</div>
-        <div class="button">-</div>
-        <div class="button">3</div>
-        <div class="button">2</div>
-        <div class="button">1</div>
-        <div class="button">.</div>
-        <div class="button">(</div>
-        <div class="button">0</div>
-        <div class="button">)</div>
-        <div class="button" id="ravno">=</div>
+      <div class="formdiv">
+        <form action="js/script.js">
+          <label for="name" style="color: white;">Enter nickname</label><br>
+          <input type="text" id="nickname" name="name">
+        </form>  
       </div>
+      <a href = "calculator.html"><div id="button">Log In</div></a>
     </div>
-    <script src="js/script.js"></script>
-  </body>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+      import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAQyEleV-heqqFHyMDOJwMiupNjw9HdgUA",
+        authDomain: "calc-68d62.firebaseapp.com",
+        databaseURL: "https://calc-68d62-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "calc-68d62",
+        storageBucket: "calc-68d62.appspot.com",
+        messagingSenderId: "30359236288",
+        appId: "1:30359236288:web:7f66a6c78787fd2c868725"
+      };
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      let count;
+      const starCountRef = ref(db, 'users');
+      onValue(starCountRef, (snapshot) => {
+        count = Object.keys(snapshot.val()).length
+        console.log(count)
+      });
+      var button = document.getElementById('button');
+      let form;
+      button.addEventListener('click', e=>{
+        form = document.getElementById("nickname").value;
+        if (!(form === ''))
+          set(ref(db, 'users/user' + (count + 1)), {
+              nickname: form,
+              n : 1000000 - (count)
+          })
+      })
+    </script>
+  
+  </body> 
 </html>
