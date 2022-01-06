@@ -1,0 +1,7 @@
+As russian say:"All the genius things are simple". But its not the case.
+Calculator is good but first page is lame.
+Should work on design and div placement.
+Taking into consideration that Firebase was used I will give it a weak 8 out of 10.
+Good job!
+
+Abdiev Atai from COM20.
